@@ -111,11 +111,13 @@ const main = async () => {
         const issueDescription = (0, core_1.getInput)("linear-issue-description");
         const issueStateId = (0, core_1.getInput)("linear-issue-state-id");
         const labelIds = getIdsFromInput((0, core_1.getInput)("linear-issue-label-ids"));
+        const projectIds = getIdsFromInput((0, core_1.getInput)("linear-issue-project-ids"));
         const issue = await (0, createIssue_1.default)(linearClient, {
             teamId: team.id,
             title: issueTitle,
             description: issueDescription,
             ...(labelIds.length > 0 ? { labelIds } : {}),
+            ...(projectIds.length > 0 ? { projectIds } : {}),
             ...(issueStateId ? { stateId: issueStateId } : {}),
         });
         if (!issue) {
