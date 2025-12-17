@@ -21,6 +21,8 @@ inputs:
     description: "Title of the URL attachment."
   linear-issue-label-ids:
     description: "Comma deliminated label ids"
+  linear-issue-project-ids:
+    description: "Comma deliminated project ids"
 outputs:
   linear-issue-id:
     description: "The Linear issue's unique identifier. (UUID)"

@@ -19,6 +19,7 @@ This is helpful when you're:
 | `linear-issue-state-id`    | Team state ID for the Linear issue.                           |          |
 | `linear-attachment-url`    | URL to attach to the Linear issue.                            |          |
 | `linear-attachment-title`  | URL to attach to the Linear issue.                            |          |
+| `linear-issue-project-ids` | Comma delimited project IDs for the Linear issue.             |          |
 
 ## Outputs
 

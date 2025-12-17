@@ -29,11 +29,13 @@ const main = async () => {
     const issueDescription = getInput("linear-issue-description");
     const issueStateId = getInput("linear-issue-state-id");
     const labelIds = getIdsFromInput(getInput("linear-issue-label-ids"));
+    const projectIds = getIdsFromInput(getInput("linear-issue-project-ids"));
     const issue = await createIssue(linearClient, {
       teamId: team.id,
       title: issueTitle,
       description: issueDescription,
       ...(labelIds.length > 0 ? { labelIds } : {}),
+      ...(projectIds.length > 0 ? { projectIds } : {}),
       ...(issueStateId ? { stateId: issueStateId } : {}),
     });
     if (!issue) {
