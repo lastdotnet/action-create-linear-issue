@@ -8,7 +8,7 @@ on:
         type: choice
         description: "Linear Team ID to create the issue for"
         options:
-          - CHR
+          - HYP
       title:
         required: true
         description: "Title for the Linear Issue"

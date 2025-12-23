@@ -30,12 +30,14 @@ const main = async () => {
     const issueStateId = getInput("linear-issue-state-id");
     const labelIds = getIdsFromInput(getInput("linear-issue-label-ids"));
     const projectIds = getIdsFromInput(getInput("linear-issue-project-ids"));
+    // Linear SDK only supports a single projectId, so we use the first one if multiple are provided
+    const projectId = projectIds.length > 0 ? projectIds[0] : undefined;
     const issue = await createIssue(linearClient, {
       teamId: team.id,
       title: issueTitle,
       description: issueDescription,
       ...(labelIds.length > 0 ? { labelIds } : {}),
-      ...(projectIds.length > 0 ? { projectIds } : {}),
+      ...(projectId ? { projectId } : {}),
       ...(issueStateId ? { stateId: issueStateId } : {}),
     });
     if (!issue) {
